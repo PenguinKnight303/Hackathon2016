@@ -5,6 +5,13 @@ public class Patient {
 	private String patientName;
 	private String patientDob;
 	private String patientGender;
+	
+	public Patient(String patientId, String patientName, String patientDob, String patientGender){
+		this.patientId = patientId;
+		this.patientName = patientName;
+		this.patientDob = patientDob;
+		this.patientGender = patientGender;
+	}
 
 	public String getPatientId() {
 		return patientId;
