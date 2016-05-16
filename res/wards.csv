@@ -1,0 +1,8 @@
+ward_id,ward_name,capacity
+1,Waiting Room,70
+2,Emergency Department,30
+3,General,100
+4,Ward 1,40
+5,Ward 2,30
+6,Ward 3,40
+7,Ward 4,10
