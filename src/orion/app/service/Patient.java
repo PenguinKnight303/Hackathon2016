@@ -5,6 +5,11 @@ public class Patient {
 	private String patientName;
 	private String patientDob;
 	private String patientGender;
+	private boolean dead;
+	private boolean isWaiting;
+	private WaitingList currentWaitingList;
+	private Ward currentWard;
+	
 
 	public String getPatientId() {
 		return patientId;
@@ -37,5 +42,7 @@ public class Patient {
 	public void setPatientGender(String patientGender) {
 		this.patientGender = patientGender;
 	}
+	
+	
 
 }
