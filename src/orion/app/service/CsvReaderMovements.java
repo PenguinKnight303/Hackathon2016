@@ -15,9 +15,9 @@ public class CsvReaderMovements {
 //		System.out.println("The total size is: "+allList.size());
 //	}
 	
-	public List<Movements> readCSVMovement(){
+	public List<Movement> readCSVMovement(){
 		
-		List<Movements> movementList = new ArrayList<>();
+		List<Movement> movementList = new ArrayList<>();
 		try {
 
 			CsvReader products = new CsvReader("C:\\Users\\user\\Desktop\\OHHackathon\\movements.csv");
@@ -33,7 +33,7 @@ public class CsvReaderMovements {
 				String movement_date = products.get("movement_date");
 				
 				// perform program logic here
-				Movements movement = new Movements(event_index, patient_id, from_ward,to_ward,movement_date);
+				Movement movement = new Movement(event_index, patient_id, from_ward,to_ward,movement_date);
 				movementList.add(movement);
 				
 				// Display

@@ -15,6 +15,8 @@ public class Patient {
 		this.patientName = patientName;
 		this.patientDob = patientDob;
 		this.patientGender = patientGender;
+		this.dead = false;
+		this.isWaiting = false;
 	}
 
 	public String getPatientId() {

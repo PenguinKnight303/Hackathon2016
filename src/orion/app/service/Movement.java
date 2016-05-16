@@ -1,13 +1,13 @@
 package orion.app.service;
 
-public class Movements {
+public class Movement {
 	private String event_index;
 	private String patient_id;
 	private String from_ward;
 	private String to_ward;
 	private String movement_date;
 
-	public Movements(String event_index, String patient_id, String from_ward, String to_ward, String movement_date){
+	public Movement(String event_index, String patient_id, String from_ward, String to_ward, String movement_date){
 		this.event_index = event_index;
 		this.patient_id = patient_id;
 		this.from_ward = from_ward;
