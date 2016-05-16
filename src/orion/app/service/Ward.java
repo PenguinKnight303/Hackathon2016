@@ -1,6 +1,5 @@
 package orion.app.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Ward {
@@ -8,32 +7,29 @@ public class Ward {
 	private String wardName;
 	private int capacity;
 	private List<Patient> patients;
-	private WaitingList waitingList;
+	WaitingList waitingList;
 	
-	/**
-	 * Constructor
-	 */
-	public Ward(String id, String name, String cap){
-		wardID = Integer.parseInt(id);
-		wardName = name;
-		capacity = Integer.parseInt(cap);
-		patients = new ArrayList<Patient>();
+	public Ward(String wardID, String wardName, String capacity){
+		this.wardID = Integer.parseInt(wardID);
+		this.wardName = wardName;
+		this.capacity = Integer.parseInt(capacity);
+		this.waitingList = new WaitingList(this.wardID);
 	}
 
-	public Integer getCapacity() {
+	public int getCapacity() {
 		return capacity;
 	}
 
-	public void setCapacity(Integer capacity) {
-		this.capacity = capacity;
+	public void setCapacity(String capacity) {
+		this.capacity = Integer.parseInt(capacity);
 	}
 
 	public int getWardID() {
 		return wardID;
 	}
 
-	public void setWardID(int wardID) {
-		this.wardID = wardID;
+	public void setWardID(String wardID) {
+		this.wardID = Integer.parseInt(wardID);
 	}
 
 	public String getWardName() {
@@ -42,6 +38,14 @@ public class Ward {
 
 	public void setWardName(String wardName) {
 		this.wardName = wardName;
+	}
+
+	public List<Patient> getPatientList() {
+		return patients;
+	}
+
+	public void setPatientList(List<Patient> patientList) {
+		this.patients = patientList;
 	}
 
 	/**
@@ -68,7 +72,14 @@ public class Ward {
 				waitingList.add(p);
 				return false;
 			}
-		}
-		
+		}	
+	}
+	
+	/**
+	 * Patient has left the ward
+	 * @param p the patient to be removed
+	 */
+	public void removeFromWard(Patient p){
+		patients.remove(p);
 	}
 }

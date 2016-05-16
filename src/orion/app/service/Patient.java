@@ -10,6 +10,12 @@ public class Patient {
 	private WaitingList currentWaitingList;
 	private Ward currentWard;
 	
+	public Patient(String patientId, String patientName, String patientDob, String patientGender){
+		this.patientId = patientId;
+		this.patientName = patientName;
+		this.patientDob = patientDob;
+		this.patientGender = patientGender;
+	}
 
 	public String getPatientId() {
 		return patientId;
@@ -43,6 +49,14 @@ public class Patient {
 		this.patientGender = patientGender;
 	}
 	
-	
+	/**
+	 * Patient was moved to the Emergency department when it was full
+	 * Notify the current ward and waiting list that this patient has been removed
+	 */
+	public void patientDied(){
+		dead = true;
+		currentWard.removeFromWard(this);
+		currentWaitingList.remove(this);
+	}
 
 }
