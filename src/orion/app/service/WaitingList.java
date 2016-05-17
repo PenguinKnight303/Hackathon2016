@@ -1,7 +1,7 @@
 package orion.app.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * The waiting list for a given ward
@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class WaitingList {
 	private int wardId;
-	private List<Patient> patients;
+	private LinkedList<Patient> patients;
 	
 	public WaitingList(int id){
 		wardId = id;
-		patients = new ArrayList<Patient>();
+		patients = new LinkedList<Patient>();
 	}
 
 	/**
@@ -38,9 +38,7 @@ public class WaitingList {
 	 * There is a space in the ward, get the patient at the start of the list
 	 * @return
 	 */
-	public Patient getNextPatient(){
-		Patient top = patients.get(0);
-		patients.remove(0);
-		return top;
+	public Patient getNextPatient() throws NoSuchElementException{
+		return patients.pop();
 	}
 }

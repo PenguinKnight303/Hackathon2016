@@ -1,41 +1,34 @@
 package orion.app.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Hospital {
 
-	private List<Ward> wardList;
-	private List<Patient> patientList;
-	private List<Movements> movementList;
+	private HashMap<Integer, Ward> wardList;
+	private HashMap<Integer, Patient> patientList;
+	private List<Movement> movementList;
 	
 	
-	public List<Ward> getWardList() {
+	public HashMap<Integer, Ward> getWards() {
 		CsvReaderWard crw = new CsvReaderWard();
 		wardList = crw.readCSVWard();
 		return wardList;
 	}
 
-	public void setWardList(List<Ward> wardList) {
-		this.wardList = wardList;
-	}
-
-	public List<Patient> getPatientList() {
+	public HashMap<Integer, Patient> getPatients() {
 		CsvReaderPatients crp = new CsvReaderPatients();
 		patientList = crp.readCSVPatients();
 		return patientList;
 	}
 
-	public void setPatientList(List<Patient> patientList) {
-		this.patientList = patientList;
-	}
-
-	public List<Movements> getMovementList() {
+	public List<Movement> getMovementList() {
 		CsvReaderMovements crm = new CsvReaderMovements();
 		movementList = crm.readCSVMovement();
 		return movementList;
 	}
 
-	public void setMovementList(List<Movements> movementList) {
+	public void setMovementList(List<Movement> movementList) {
 		this.movementList = movementList;
 	}
 

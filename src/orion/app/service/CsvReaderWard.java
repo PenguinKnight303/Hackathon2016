@@ -3,6 +3,7 @@ package orion.app.service;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.csvreader.CsvReader;
@@ -15,9 +16,9 @@ public class CsvReaderWard {
 //
 //	}
 	
-	public List<Ward> readCSVWard(){
+	public HashMap<Integer, Ward> readCSVWard(){
 		
-		List<Ward> wardsList = new ArrayList<>();
+		HashMap<Integer, Ward> wardsList = new HashMap<Integer, Ward>();
 		try {
 
 			CsvReader products = new CsvReader("C:\\Users\\user\\Desktop\\OHHackathon\\wards.csv");
@@ -33,7 +34,7 @@ public class CsvReaderWard {
 				
 				// perform program logic here
 				Ward ward = new Ward(wardID, wardName, capacity);
-				wardsList.add(ward);
+				wardsList.put(ward.getWardID(), ward);
 				// Display
 				//System.out.println(wardID + ":" + wardName+" : "+capacity);
 			}

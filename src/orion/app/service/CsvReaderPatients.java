@@ -3,6 +3,7 @@ package orion.app.service;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.csvreader.CsvReader;
@@ -14,9 +15,9 @@ public class CsvReaderPatients {
 //		System.out.println(patientsList.size());
 //	}
 	
-	public List<Patient> readCSVPatients(){
+	public HashMap<Integer, Patient> readCSVPatients(){
 		
-		List<Patient> patientsList = new ArrayList<>();
+		HashMap<Integer, Patient> patientsList = new HashMap<Integer, Patient>();
 
 		try {
 
@@ -33,7 +34,7 @@ public class CsvReaderPatients {
 
 				// perform program logic here
 				Patient patient = new Patient(patientID, patientName, patientdob,patientGender);
-				patientsList.add(patient);
+				patientsList.put(patient.getPatientId(), patient);
 				// Display
 				//System.out.println(patientID + ":" + patientName + " : " + patientdob+ " : "+patientGender);
 			}

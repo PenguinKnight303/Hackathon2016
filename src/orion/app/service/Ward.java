@@ -1,6 +1,7 @@
 package orion.app.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Ward {
 	private int wardID;
@@ -57,6 +58,7 @@ public class Ward {
 		// Check we aren't at capacity
 		if(patients.size() < capacity){
 			patients.add(p);
+			p.movedToWard(this);
 			return true;
 		}else{
 			// Ward is at capacity
@@ -65,11 +67,12 @@ public class Ward {
 				return false;
 			}else if(wardID == 2){
 				// Emergency department, patient is dead :(
-				// TODO deal with killing patients
+				p.patientDied();
 				return false;
 			}else{
 				// Place patient on waiting list
 				waitingList.add(p);
+				p.placedOnList(waitingList);
 				return false;
 			}
 		}	
@@ -81,5 +84,12 @@ public class Ward {
 	 */
 	public void removeFromWard(Patient p){
 		patients.remove(p);
+		// TODO There may be patients on the waiting list and space in the ward now
+		try{
+			Patient topOfList = waitingList.getNextPatient();
+			moveToWard(p);
+		}catch(NoSuchElementException e){
+			// Great, the waiting list is empty, don't need to do anything
+		}
 	}
 }
