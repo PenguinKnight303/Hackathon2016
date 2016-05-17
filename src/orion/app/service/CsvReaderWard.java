@@ -21,13 +21,13 @@ public class CsvReaderWard {
 		HashMap<Integer, Ward> wardsList = new HashMap<Integer, Ward>();
 		try {
 
-			CsvReader products = new CsvReader("C:\\Users\\user\\Desktop\\OHHackathon\\wards.csv");
+			CsvReader products = new CsvReader("res\\wards.csv");
 
 			products.readHeaders();
 
 			while (products.readRecord()) {
 				
-				String wardID = products.get("patient_id");
+				String wardID = products.get("ward_id");
 				String wardName = products.get("ward_name");
 				String capacity = products.get("capacity");
 				

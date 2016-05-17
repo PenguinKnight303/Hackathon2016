@@ -21,7 +21,7 @@ public class CsvReaderPatients {
 
 		try {
 
-			CsvReader products = new CsvReader("C:\\Users\\user\\Desktop\\OHHackathon\\patients.csv");
+			CsvReader products = new CsvReader("res\\patients.csv");
 
 			products.readHeaders();
 

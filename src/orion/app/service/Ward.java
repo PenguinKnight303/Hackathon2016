@@ -1,5 +1,6 @@
 package orion.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -15,6 +16,7 @@ public class Ward {
 		this.wardName = wardName;
 		this.capacity = Integer.parseInt(capacity);
 		this.waitingList = new WaitingList(this.wardID);
+		patients = new ArrayList<Patient>();
 	}
 
 	public int getCapacity() {
@@ -91,5 +93,13 @@ public class Ward {
 		}catch(NoSuchElementException e){
 			// Great, the waiting list is empty, don't need to do anything
 		}
+	}
+	
+	public String toString(){
+		return "Ward: " + wardID + "\n" +
+				"Name: " + wardName + "\n" +
+				"Capacity: " + capacity + "\n" +
+				"Patients: " + patients.size() + "\n" +
+				"Waiting List: " + waitingList.size();
 	}
 }

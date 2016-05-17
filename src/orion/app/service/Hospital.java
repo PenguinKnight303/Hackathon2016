@@ -10,21 +10,33 @@ public class Hospital {
 	private List<Movement> movementList;
 	
 	
-	public HashMap<Integer, Ward> getWards() {
+	public HashMap<Integer, Ward> initialiseWards() {
 		CsvReaderWard crw = new CsvReaderWard();
 		wardList = crw.readCSVWard();
 		return wardList;
 	}
 
-	public HashMap<Integer, Patient> getPatients() {
+	public HashMap<Integer, Patient> initialisePatients() {
 		CsvReaderPatients crp = new CsvReaderPatients();
 		patientList = crp.readCSVPatients();
 		return patientList;
 	}
 
-	public List<Movement> getMovementList() {
-		CsvReaderMovements crm = new CsvReaderMovements();
+	public List<Movement> initialiseMovementList() {
+		CsvReaderMovements crm = new CsvReaderMovements(this);
 		movementList = crm.readCSVMovement();
+		return movementList;
+	}
+	
+	public HashMap<Integer, Ward> getWards(){
+		return wardList;
+	}
+	
+	public HashMap<Integer, Patient> getPatients(){
+		return patientList;
+	}
+	
+	public List<Movement> getMovementList(){
 		return movementList;
 	}
 
@@ -34,10 +46,21 @@ public class Hospital {
 
 	
 
-//	public static void main(String[] args) {
-//		Hospital h = new Hospital();
-//		List<Patient> pat = h.getPatientList();
-//		System.out.println(pat.size());
-//	}
+	public static void main(String[] args) {
+		Hospital h = new Hospital();
+		h.getMovementList();
+		int limit = 0;
+		for(Movement m : h.movementList){
+			m.execute();
+			limit++;
+			if(limit > 15){
+				break;
+			}
+		}
+		for(Ward w : h.wardList.values()){
+			System.out.println(w.toString());
+		}
+		System.out.println("Finished");
+	}
 
 }

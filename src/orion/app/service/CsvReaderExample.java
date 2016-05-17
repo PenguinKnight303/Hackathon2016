@@ -9,7 +9,7 @@ public class CsvReaderExample {
 	public static void main(String[] args) {
 		try {
 
-			CsvReader products = new CsvReader("C:\\Users\\user\\Desktop\\OHHackathon\\wards.csv");
+			CsvReader products = new CsvReader("res\\wards.csv");
 
 			products.readHeaders();
 

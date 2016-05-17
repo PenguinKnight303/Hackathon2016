@@ -11,12 +11,13 @@ public class Movement {
 	private Hospital hospital;
 	private boolean moveSuccessful;
 
-	public Movement(String event_index, String patient_id, String from_ward, String to_ward, String movement_date){
+	public Movement(String event_index, String patient_id, String from_ward, String to_ward, String movement_date, Hospital h){
 		this.event_index = event_index;
 		this.patient_id = Integer.parseInt(patient_id);
 		this.from_ward = from_ward;
 		this.to_ward = to_ward;
 		this.movement_date = movement_date;
+		hospital = h;
 	}
 
 

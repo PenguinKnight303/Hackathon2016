@@ -41,4 +41,8 @@ public class WaitingList {
 	public Patient getNextPatient() throws NoSuchElementException{
 		return patients.pop();
 	}
+	
+	public int size(){
+		return patients.size();
+	}
 }
