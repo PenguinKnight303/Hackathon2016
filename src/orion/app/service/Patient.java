@@ -60,6 +60,10 @@ public class Patient {
 		this.patientGender = patientGender;
 	}
 	
+	public boolean isDead(){
+		return dead;
+	}
+	
 	/**
 	 * Patient was moved to the Emergency department when it was full
 	 * Notify the current ward and waiting list that this patient has been removed

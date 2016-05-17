@@ -70,6 +70,7 @@ public class Ward {
 			}else if(wardID == 2){
 				// Emergency department, patient is dead :(
 				p.patientDied();
+				System.out.println("");
 				return false;
 			}else{
 				// Place patient on waiting list
